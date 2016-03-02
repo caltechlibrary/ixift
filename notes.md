@@ -25,6 +25,8 @@
 
 ## Additional resources
 
++ [JSON-LD](http://json-ld.org/)
+    + [Golang JSON-LD package](https://github.com/kazarena/json-gold)
 + [From the page](http://fromthepage.com/) - transcription of content
 + [IIIF Universe](https://github.com/ryanfb/iiif-universe/) - A 'sitemap' system to iiif content (if we run an iiif server do we join this?)
 + [IIIF At Internet Archives](https://iiif.archivelab.org/iiif/documentation)
