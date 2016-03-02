@@ -21,9 +21,41 @@
 package main
 
 import (
+	"flag"
 	"fmt"
+	"os"
+
+	// Caltech Library Packages
+	"github.com/caltechlibrary/ixift"
 )
 
+var (
+	showHelp    bool
+	showVersion bool
+)
+
+func init() {
+	flag.BoolVar(&showHelp, "h", showHelp, "display help message")
+	flag.BoolVar(&showVersion, "v", showVersion, "display version information")
+}
+
 func main() {
-	fmt.Println("Hello World!")
+	flag.Parse()
+
+	if showHelp == true {
+		fmt.Println(`
+ USAGE: ixiftjs [OPTIONS] [JAVASCRIPT_FILES]
+		`)
+		flag.PrintDefaults()
+		fmt.Printf("\nVersion %s\n", ixift.Version)
+		os.Exit(0)
+	}
+
+	if showVersion == true {
+		fmt.Printf("Version %s\n", ixift.Version)
+		os.Exit(0)
+	}
+
+	jsArgs := flag.Args()
+	os.Exit(ixift.Repl(jsArgs))
 }
