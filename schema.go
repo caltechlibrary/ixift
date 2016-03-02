@@ -107,20 +107,20 @@ func (v ViewHintType) IsValid() bool {
 //     Each manifest describes how to present a single object such as a book, a photograph, or a statue.
 //
 type Manifest struct {
-	URI         *url.URL               `json:"@id"`
-	Type        string                 `json:"@type"`
-	Label       string                 `json:"label"`
-	Metadata    map[string]string      `json:"metadata"`
-	Description string                 `json:"description"`
-	Thumbnail   string                 `json:"thumbnail"`
-	Attribution string                 `json:"attribution,omitempty"`
-	Logo        string                 `json:"logo,omitempty"`
-	License     string                 `json:"license,omitempty"`
-	ViewHint    ViewHintType           `json:"viewingHint,omitempty"`
-	Related     map[string]string      `json:"related,omitempty"`
-	Service     map[string]interface{} `json:"service,omitempty"`
-	SeeAlso     string                 `json:"seeAlso,omitempty"`
-	Within      string                 `json:"within,omitempty"`
+	URI         *url.URL          `json:"@id"`
+	Type        string            `json:"@type"`
+	Label       string            `json:"label"`
+	Metadata    map[string]string `json:"metadata"`
+	Description string            `json:"description"`
+	Thumbnail   string            `json:"thumbnail"`
+	Attribution string            `json:"attribution,omitempty"`
+	Logo        string            `json:"logo,omitempty"`
+	License     string            `json:"license,omitempty"`
+	ViewHint    ViewHintType      `json:"viewingHint,omitempty"`
+	Related     map[string]string `json:"related,omitempty"`
+	Service     []string          `json:"service,omitempty"`
+	SeeAlso     []string          `json:"seeAlso,omitempty"`
+	Within      string            `json:"within,omitempty"`
 
 	ViewDirection ViewDirectionType `json:"viewingDirection,omitempty"`
 
@@ -133,20 +133,20 @@ type Manifest struct {
 //     or archival collections are reordered.
 //
 type Sequence struct {
-	URI         *url.URL               `json:"@id"`
-	Type        string                 `json:"@type"`
-	Label       string                 `json:"label,omitempty"`
-	Metadata    map[string]string      `json:"metadata,omitempty"`
-	Description string                 `json:"description,omitempty"`
-	Thumbnail   string                 `json:"thumbnail,omitempty"`
-	Attribution string                 `json:"attribution,omitempty"`
-	Logo        string                 `json:"logo,omitempty"`
-	License     string                 `json:"license,omitempty"`
-	ViewHint    ViewHintType           `json:"viewingHint,omitempty"`
-	Related     map[string]string      `json:"related,omitempty"`
-	Service     map[string]interface{} `json:"service,omitempty"`
-	SeeAlso     string                 `json:"seeAlso,omitempty"`
-	Within      string                 `json:"within,omitempty"`
+	URI         *url.URL          `json:"@id"`
+	Type        string            `json:"@type"`
+	Label       string            `json:"label,omitempty"`
+	Metadata    map[string]string `json:"metadata,omitempty"`
+	Description string            `json:"description,omitempty"`
+	Thumbnail   string            `json:"thumbnail,omitempty"`
+	Attribution string            `json:"attribution,omitempty"`
+	Logo        string            `json:"logo,omitempty"`
+	License     string            `json:"license,omitempty"`
+	ViewHint    ViewHintType      `json:"viewingHint,omitempty"`
+	Related     map[string]string `json:"related,omitempty"`
+	Service     []string          `json:"service,omitempty"`
+	SeeAlso     []string          `json:"seeAlso,omitempty"`
+	Within      string            `json:"within,omitempty"`
 
 	ViewDirection ViewDirectionType `json:"viewingDirection,omitempty"`
 
@@ -161,20 +161,20 @@ type Sequence struct {
 //     display starts from a blank canvas and images, text and other resources are “painted” on to it.
 //
 type Canvas struct {
-	URI         *url.URL               `json:"@id"`
-	Type        string                 `json:"@type"`
-	Label       string                 `json:"label"`
-	Metadata    map[string]string      `json:"metadata,omitempty"`
-	Description string                 `json:"description,omitempty"`
-	Thumbnail   string                 `json:"thumbnail,omitempty"`
-	Attribution string                 `json:"attribution,omitempty"`
-	Logo        string                 `json:"logo,omitempty"`
-	License     string                 `json:"license,omitempty"`
-	ViewHint    ViewHintType           `json:"viewingHint,omitempty"`
-	Related     map[string]string      `json:"related,omitempty"`
-	Service     map[string]interface{} `json:"service,omitempty"`
-	SeeAlso     string                 `json:"seeAlso,omitempty"`
-	Within      string                 `json:"within,omitempty"`
+	URI         *url.URL          `json:"@id"`
+	Type        string            `json:"@type"`
+	Label       string            `json:"label"`
+	Metadata    map[string]string `json:"metadata,omitempty"`
+	Description string            `json:"description,omitempty"`
+	Thumbnail   string            `json:"thumbnail,omitempty"`
+	Attribution string            `json:"attribution,omitempty"`
+	Logo        string            `json:"logo,omitempty"`
+	License     string            `json:"license,omitempty"`
+	ViewHint    ViewHintType      `json:"viewingHint,omitempty"`
+	Related     map[string]string `json:"related,omitempty"`
+	Service     []string          `json:"service,omitempty"`
+	SeeAlso     []string          `json:"seeAlso,omitempty"`
+	Within      string            `json:"within,omitempty"`
 
 	Height string `json:"height"`
 	Width  string `json:"width"`
@@ -186,20 +186,20 @@ type Canvas struct {
 // Content - content resources such as images or texts that are associated with a canvas.
 //
 type Content struct {
-	URI         *url.URL               `json:"@id"`
-	Type        string                 `json:"@type"`
-	Label       string                 `json:"label,omitempty"`
-	Metadata    map[string]string      `json:"metadata,omitempty"`
-	Description string                 `json:"description,omitempty"`
-	Thumbnail   string                 `json:"thumbnail,omitempty"`
-	Attribution string                 `json:"attribution,omitempty"`
-	Logo        string                 `json:"logo,omitempty"`
-	License     string                 `json:"license,omitempty"`
-	ViewHint    ViewHintType           `json:"viewingHint,omitempty"`
-	Related     map[string]string      `json:"related,omitempty"`
-	Service     map[string]interface{} `json:"service,omitempty"`
-	SeeAlso     string                 `json:"seeAlso,omitempty"`
-	Within      string                 `json:"within,omitempty"`
+	URI         *url.URL          `json:"@id"`
+	Type        string            `json:"@type"`
+	Label       string            `json:"label,omitempty"`
+	Metadata    map[string]string `json:"metadata,omitempty"`
+	Description string            `json:"description,omitempty"`
+	Thumbnail   string            `json:"thumbnail,omitempty"`
+	Attribution string            `json:"attribution,omitempty"`
+	Logo        string            `json:"logo,omitempty"`
+	License     string            `json:"license,omitempty"`
+	ViewHint    ViewHintType      `json:"viewingHint,omitempty"`
+	Related     map[string]string `json:"related,omitempty"`
+	Service     []string          `json:"service,omitempty"`
+	SeeAlso     []string          `json:"seeAlso,omitempty"`
+	Within      string            `json:"within,omitempty"`
 
 	ViewDirection ViewDirectionType `json:"viewingDirection,omitempty"`
 	Format        string            `json:"format,omitempty"`
