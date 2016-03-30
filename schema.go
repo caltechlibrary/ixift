@@ -21,6 +21,7 @@
 package ixift
 
 import (
+	"fmt"
 	"net/url"
 	"strings"
 )
@@ -100,6 +101,25 @@ func (v ViewHintType) IsValid() bool {
 	return false
 }
 
+// ServiceType is a map[string]string based on description at http://iiif.io/api/annex/services/
+type ServiceType map[string]string
+
+// Validate process a service type and make sure it is valid for IIIF
+func (s ServiceType) Validate() error {
+	// Must have
+	if _, ok := s["@context"]; ok == false {
+		//return false, fmt.Errorf("Must have @context")
+		return fmt.Errorf("Must have @context")
+	}
+	// Should have
+	if _, ok := s["@id"]; ok == false {
+		//return false, fmt.Errorf("Should have @id")
+		return fmt.Errorf("Should have @id")
+	}
+	//return true
+	return nil
+}
+
 //
 // Manifest - the overall description of the structure and properties of the digital representation of an object.
 //     It carries information needed for the viewer to present the digitized content to the user, such as a
@@ -116,9 +136,9 @@ type Manifest struct {
 	Attribution string            `json:"attribution,omitempty"`
 	Logo        string            `json:"logo,omitempty"`
 	License     string            `json:"license,omitempty"`
-	ViewHint    ViewHintType      `json:"viewingHint,omitempty"`
+	ViewHint    *ViewHintType     `json:"viewingHint,omitempty"`
 	Related     map[string]string `json:"related,omitempty"`
-	Service     []string          `json:"service,omitempty"`
+	Service     *ServiceType      `json:"service,omitempty"`
 	SeeAlso     []string          `json:"seeAlso,omitempty"`
 	Within      string            `json:"within,omitempty"`
 
